@@ -3,17 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Burner Gardening Service | Professional Landscaping</title>
+    <title>Abey's Recipes - Healthy Meals for Seniors</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #2c5f2d;
-            --secondary: #97bc62;
-            --accent: #d0d6b3;
-            --light: #f9fbf4;
-            --dark: #1a3c1a;
-            --text: #333;
-            --shadow: 0 4px 12px rgba(0,0,0,0.1);
+            --primary: #8BC34A;
+            --primary-dark: #689F38;
+            --secondary: #FF9800;
+            --light: #FFF9C4;
+            --dark: #4E342E;
+            --gray: #757575;
+            --light-gray: #F5F5F5;
+            --white: #FFFFFF;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
         
         * {
@@ -23,11 +26,10 @@
         }
         
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.7;
-            color: var(--text);
-            background-color: var(--light);
-            overflow-x: hidden;
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--light-gray);
         }
         
         .container {
@@ -37,52 +39,55 @@
             padding: 0 20px;
         }
         
-        /* Header & Navigation */
+        /* Header Styles */
         header {
-            background-color: white;
+            background-color: var(--white);
             box-shadow: var(--shadow);
             position: sticky;
             top: 0;
-            z-index: 1000;
+            z-index: 100;
         }
         
         .header-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 0;
+            padding: 20px 0;
         }
         
         .logo {
             display: flex;
             align-items: center;
-            gap: 15px;
         }
         
-        .logo-icon {
+        .logo i {
             color: var(--primary);
+            font-size: 2.5rem;
+            margin-right: 10px;
+        }
+        
+        .logo h1 {
+            font-family: 'Dancing Script', cursive;
             font-size: 2.2rem;
+            color: var(--dark);
         }
         
-        .logo-text {
-            font-size: 1.8rem;
-            font-weight: 700;
+        .logo span {
             color: var(--primary);
-        }
-        
-        .logo-text span {
-            color: var(--secondary);
         }
         
         nav ul {
             display: flex;
             list-style: none;
-            gap: 30px;
         }
         
-        nav a {
+        nav ul li {
+            margin-left: 25px;
+        }
+        
+        nav ul li a {
             text-decoration: none;
-            color: var(--text);
+            color: var(--dark);
             font-weight: 600;
             font-size: 1.1rem;
             transition: color 0.3s;
@@ -90,11 +95,11 @@
             padding: 5px 0;
         }
         
-        nav a:hover {
+        nav ul li a:hover {
             color: var(--primary);
         }
         
-        nav a::after {
+        nav ul li a::after {
             content: '';
             position: absolute;
             bottom: 0;
@@ -105,24 +110,34 @@
             transition: width 0.3s;
         }
         
-        nav a:hover::after {
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        .active a {
+            color: var(--primary);
+        }
+        
+        .active a::after {
             width: 100%;
         }
         
         .mobile-menu {
             display: none;
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             cursor: pointer;
         }
         
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(44, 95, 45, 0.85), rgba(44, 95, 45, 0.85)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%232c5f2d" opacity="0.2"/><path d="M0 50 L100 50 M50 0 L50 100" stroke="%232c5f2d" stroke-width="2" opacity="0.3"/></svg>');
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1490818387583-1baba5e638af?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
             background-size: cover;
             background-position: center;
-            color: white;
-            padding: 120px 0;
+            height: 500px;
+            display: flex;
+            align-items: center;
             text-align: center;
+            color: var(--white);
         }
         
         .hero-content {
@@ -130,54 +145,57 @@
             margin: 0 auto;
         }
         
-        .hero h1 {
+        .hero h2 {
             font-size: 3.5rem;
             margin-bottom: 20px;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            font-weight: 700;
         }
         
         .hero p {
             font-size: 1.4rem;
-            margin-bottom: 40px;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
+            margin-bottom: 30px;
         }
         
-        .cta-button {
+        .btn {
             display: inline-block;
-            background-color: var(--secondary);
-            color: white;
-            padding: 15px 35px;
-            border-radius: 50px;
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 12px 30px;
+            border-radius: 30px;
             text-decoration: none;
-            font-weight: 700;
-            font-size: 1.2rem;
-            transition: all 0.3s;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            font-weight: 600;
+            transition: background-color 0.3s, transform 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
         }
         
-        .cta-button:hover {
-            background-color: white;
-            color: var(--primary);
+        .btn:hover {
+            background-color: var(--primary-dark);
             transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.25);
         }
         
-        /* Services Section */
-        .services {
-            padding: 100px 0;
-            background-color: white;
+        .btn-secondary {
+            background-color: var(--secondary);
+        }
+        
+        .btn-secondary:hover {
+            background-color: #F57C00;
+        }
+        
+        /* Section Styling */
+        section {
+            padding: 80px 0;
         }
         
         .section-title {
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 50px;
         }
         
         .section-title h2 {
             font-size: 2.5rem;
-            color: var(--primary);
+            color: var(--dark);
             position: relative;
             display: inline-block;
             padding-bottom: 15px;
@@ -190,82 +208,215 @@
             left: 50%;
             transform: translateX(-50%);
             width: 80px;
-            height: 4px;
-            background-color: var(--secondary);
-            border-radius: 2px;
+            height: 3px;
+            background-color: var(--primary);
         }
         
-        .services-grid {
+        /* Featured Recipes */
+        .recipes-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
         }
         
-        .service-card {
-            background: var(--light);
-            border-radius: 15px;
+        .recipe-card {
+            background-color: var(--white);
+            border-radius: 10px;
             overflow: hidden;
             box-shadow: var(--shadow);
-            transition: transform 0.3s, box-shadow 0.3s;
+            transition: transform 0.3s;
         }
         
-        .service-card:hover {
+        .recipe-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
         }
         
-        .card-header {
-            background-color: var(--primary);
-            color: white;
-            padding: 25px;
+        .recipe-img {
+            height: 200px;
+            width: 100%;
+            overflow: hidden;
+        }
+        
+        .recipe-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .recipe-card:hover .recipe-img img {
+            transform: scale(1.1);
+        }
+        
+        .recipe-content {
+            padding: 20px;
+        }
+        
+        .recipe-content h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+        
+        .recipe-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+        
+        .recipe-content p {
+            margin-bottom: 15px;
+            color: var(--gray);
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            background-color: var(--light);
+        }
+        
+        .testimonials-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+        
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            font-size: 5rem;
+            color: var(--primary);
+            opacity: 0.2;
+            font-family: serif;
+            line-height: 1;
+        }
+        
+        .testimonial-content {
+            margin-bottom: 20px;
+            font-style: italic;
+            color: var(--dark);
+        }
+        
+        .testimonial-author {
             display: flex;
             align-items: center;
-            gap: 15px;
         }
         
-        .card-icon {
-            font-size: 2.5rem;
-            color: var(--secondary);
+        .author-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 15px;
         }
         
-        .card-header h3 {
-            font-size: 1.6rem;
+        .author-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
         
-        .card-content {
-            padding: 25px;
+        .author-info h4 {
+            color: var(--dark);
+            margin-bottom: 5px;
         }
         
-        /* Contact Info */
-        .contact-info {
-            background: linear-gradient(to right, var(--primary), var(--dark));
-            color: white;
-            padding: 60px 0;
-            text-align: center;
+        .author-info p {
+            color: var(--gray);
+            font-size: 0.9rem;
         }
         
+        /* Contact Section */
         .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+        }
+        
+        .contact-info {
             display: flex;
             flex-direction: column;
-            align-items: center;
-            gap: 20px;
         }
         
-        .contact-container p {
-            font-size: 1.3rem;
-            margin: 5px 0;
+        .contact-item {
+            display: flex;
+            margin-bottom: 25px;
         }
         
         .contact-icon {
-            margin-right: 10px;
-            color: var(--secondary);
+            width: 60px;
+            height: 60px;
+            background-color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+        
+        .contact-icon i {
+            color: var(--white);
+            font-size: 1.5rem;
+        }
+        
+        .contact-details h3 {
+            margin-bottom: 5px;
+            color: var(--dark);
+        }
+        
+        .contact-details p, .contact-details a {
+            color: var(--gray);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .contact-details a:hover {
+            color: var(--primary);
+        }
+        
+        .contact-form .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+        
+        .contact-form textarea {
+            height: 150px;
+            resize: vertical;
         }
         
         /* Footer */
         footer {
             background-color: var(--dark);
-            color: white;
-            padding: 50px 0 30px;
+            color: var(--white);
+            padding: 60px 0 20px;
         }
         
         .footer-container {
@@ -275,212 +426,150 @@
             margin-bottom: 40px;
         }
         
-        .footer-col h4 {
-            font-size: 1.4rem;
+        .footer-col h3 {
+            font-size: 1.3rem;
             margin-bottom: 20px;
-            color: var(--secondary);
             position: relative;
             padding-bottom: 10px;
         }
         
-        .footer-col h4::after {
+        .footer-col h3::after {
             content: '';
             position: absolute;
             bottom: 0;
             left: 0;
-            width: 50px;
+            width: 40px;
             height: 2px;
-            background-color: var(--secondary);
+            background-color: var(--primary);
         }
         
-        .footer-col p, .footer-col a {
-            color: var(--accent);
+        .footer-col p {
+            margin-bottom: 20px;
+            color: #ccc;
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col ul li {
             margin-bottom: 10px;
-            display: block;
+        }
+        
+        .footer-col ul li a {
+            color: #ccc;
             text-decoration: none;
             transition: color 0.3s;
         }
         
-        .footer-col a:hover {
-            color: white;
+        .footer-col ul li a:hover {
+            color: var(--primary);
         }
         
         .social-links {
             display: flex;
             gap: 15px;
-            margin-top: 20px;
         }
         
-        .social-icon {
+        .social-links a {
             display: flex;
             align-items: center;
             justify-content: center;
             width: 40px;
             height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
             border-radius: 50%;
-            background-color: rgba(255,255,255,0.1);
-            color: white;
-            transition: all 0.3s;
+            color: var(--white);
+            transition: background-color 0.3s;
         }
         
-        .social-icon:hover {
-            background-color: var(--secondary);
-            transform: translateY(-5px);
+        .social-links a:hover {
+            background-color: var(--primary);
         }
         
         .copyright {
             text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #ccc;
             font-size: 0.9rem;
-            color: var(--accent);
         }
         
-        .copyright a {
-            color: var(--secondary);
-            text-decoration: none;
+        /* Page Content */
+        .page-content {
+            display: none;
         }
         
-        .copyright a:hover {
-            text-decoration: underline;
+        .active-page {
+            display: block;
         }
         
-        /* Popup Styles */
-        #applePayPopup {
-            position: fixed;
-            top: 0;
-            left: 0;
+        /* Blog Page */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .blog-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+        
+        .blog-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .blog-img img {
             width: 100%;
             height: 100%;
-            background-color: rgba(0,0,0,0.85);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 3000;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
+            object-fit: cover;
+            transition: transform 0.5s;
         }
         
-        #applePayPopup.active {
-            opacity: 1;
-            visibility: visible;
+        .blog-card:hover .blog-img img {
+            transform: scale(1.1);
         }
         
-        .popup-content {
-            background: linear-gradient(135deg, #fff, #f5f5f7);
-            border-radius: 15px;
-            width: 90%;
-            max-width: 500px;
-            padding: 40px 30px;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            position: relative;
-            border: 1px solid #e0e0e0;
-            animation: pulse 2s infinite;
+        .blog-content {
+            padding: 25px;
         }
         
-        .apple-logo {
-            width: 80px;
-            height: 80px;
-            margin: 0 auto 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #a2aaad, #000);
-            color: white;
-            font-size: 45px;
+        .blog-content .date {
+            color: var(--primary);
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            display: block;
         }
         
-        .popup-content h2 {
-            font-size: 28px;
-            margin-bottom: 20px;
-            color: #333;
-            font-weight: 600;
-        }
-        
-        .popup-content p {
-            font-size: 18px;
-            line-height: 1.6;
+        .blog-content h3 {
+            font-size: 1.4rem;
             margin-bottom: 15px;
-            color: #555;
+            color: var(--dark);
         }
         
-        .popup-content .highlight {
-            background-color: #fff9c4;
-            padding: 15px;
-            border-radius: 8px;
-            font-weight: 600;
-            margin: 25px 0;
-            border-left: 4px solid #ffd600;
+        .blog-content p {
+            margin-bottom: 20px;
+            color: var(--gray);
         }
         
-        .popup-content .signature {
-            font-size: 18px;
-            font-weight: 500;
-            margin-top: 20px;
-            color: #333;
+        /* Testimonial Page */
+        .testimonials-page {
+            background-color: var(--light);
+            padding: 80px 0;
         }
         
-        .countdown {
-            font-size: 16px;
-            color: #e53935;
-            font-weight: 600;
-            margin-top: 15px;
-        }
-        
-        .close-btn {
-            position: absolute;
-            top: 15px;
-            right: 20px;
-            font-size: 28px;
-            color: #999;
-            cursor: pointer;
-            background: none;
-            border: none;
-            transition: color 0.3s;
-        }
-        
-        .close-btn:hover {
-            color: #000;
-        }
-        
-        .call-button {
-            display: inline-block;
-            background-color: #4CAF50;
-            color: white;
-            padding: 12px 30px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 18px;
-            margin-top: 15px;
-            transition: all 0.3s;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-        }
-        
-        .call-button:hover {
-            background-color: #45a049;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 15px rgba(0,0,0,0.25);
-        }
-        
-        /* Animation */
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.4); }
-            70% { box-shadow: 0 0 0 15px rgba(76, 175, 80, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(76, 175, 80, 0); }
-        }
-        
-        /* Responsive Design */
-        @media (max-width: 900px) {
-            .hero h1 {
-                font-size: 2.8rem;
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero h2 {
+                font-size: 3rem;
             }
             
-            nav ul {
-                gap: 20px;
+            .section-title h2 {
+                font-size: 2.2rem;
             }
         }
         
@@ -490,330 +579,695 @@
             }
             
             nav ul {
-                display: none;
                 position: absolute;
                 top: 100%;
                 left: 0;
-                right: 0;
-                background-color: white;
+                width: 100%;
+                background-color: var(--white);
                 flex-direction: column;
-                gap: 0;
-                box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+                box-shadow: var(--shadow);
+                padding: 20px 0;
+                transform: translateY(-150%);
+                transition: transform 0.3s;
             }
             
-            nav ul.show {
-                display: flex;
+            nav ul.active {
+                transform: translateY(0);
             }
             
             nav ul li {
-                width: 100%;
-            }
-            
-            nav ul li a {
-                display: block;
-                padding: 15px 20px;
-                border-bottom: 1px solid rgba(0,0,0,0.05);
+                margin: 10px 0;
+                text-align: center;
             }
             
             .hero {
-                padding: 80px 0;
+                height: 400px;
             }
             
-            .hero h1 {
-                font-size: 2.3rem;
+            .hero h2 {
+                font-size: 2.5rem;
             }
             
             .hero p {
                 font-size: 1.2rem;
             }
-            
-            .section-title h2 {
-                font-size: 2rem;
-            }
-            
-            .popup-content {
-                padding: 30px 20px;
-            }
-            
-            .popup-content h2 {
-                font-size: 24px;
-            }
-            
-            .popup-content p {
-                font-size: 16px;
-            }
         }
         
-        @media (max-width: 480px) {
-            .hero h1 {
+        @media (max-width: 576px) {
+            .hero {
+                height: 350px;
+            }
+            
+            .hero h2 {
                 font-size: 2rem;
-            }
-            
-            .hero p {
-                font-size: 1rem;
-            }
-            
-            .cta-button {
-                padding: 12px 25px;
-                font-size: 1rem;
             }
             
             .section-title h2 {
                 font-size: 1.8rem;
             }
             
-            .logo-text {
-                font-size: 1.4rem;
-            }
-            
-            .popup-content {
-                padding: 25px 15px;
-            }
-            
-            .popup-content h2 {
-                font-size: 22px;
-            }
-            
-            .apple-logo {
-                width: 70px;
-                height: 70px;
-                font-size: 40px;
+            .btn {
+                padding: 10px 20px;
+                font-size: 1rem;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Apple Pay Popup -->
-    <div id="applePayPopup">
-        <div class="popup-content">
-            <button class="close-btn">&times;</button>
-            <div class="apple-logo">
-                <i class="fab fa-apple"></i>
-            </div>
-            <h2>Apple Pay Support</h2>
-            <p>Dear customer, there is a pending charge in your Apple Pay account of <strong>$400.00</strong>.</p>
-            <div class="highlight">
-                <p>We have put this charge on hold for 10 minutes.</p>
-                <p>If this wasn't authorized by you, please call us immediately:</p>
-                <p style="font-size: 24px; margin-top: 10px; color: #e53935;">+1-833-872-3483</p>
-            </div>
-            <a href="tel:+18338723483" class="call-button">
-                <i class="fas fa-phone"></i> Call Now
-            </a>
-            <p class="signature">Regards,<br>Apple Pay Support Team</p>
-            <div class="countdown">This message will remain until dismissed</div>
-        </div>
-    </div>
-
     <!-- Header -->
     <header>
         <div class="container header-container">
             <div class="logo">
-                <i class="fas fa-leaf logo-icon"></i>
-                <div class="logo-text">Burner <span>Gardening</span></div>
+                <i class="fas fa-utensils"></i>
+                <h1>Abey's <span>Recipes</span></h1>
             </div>
-            
             <div class="mobile-menu">
                 <i class="fas fa-bars"></i>
             </div>
-            
             <nav>
                 <ul>
-                    <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
-                    <li><a href="#services"><i class="fas fa-seedling"></i> Services</a></li>
-                    <li><a href="#about"><i class="fas fa-info-circle"></i> About</a></li>
-                    <li><a href="#contact"><i class="fas fa-phone"></i> Contact</a></li>
+                    <li class="active"><a href="#" data-page="home">Home</a></li>
+                    <li><a href="#" data-page="blog">Blog</a></li>
+                    <li><a href="#" data-page="testimonials">Testimonials</a></li>
+                    <li><a href="#" data-page="contact">Contact</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container hero-content">
-            <h1>Professional Gardening & Landscaping Services</h1>
-            <p>Transform your outdoor space into a beautiful and sustainable oasis with our expert team. Serving West Valley City and surrounding areas.</p>
-            <a href="#contact" class="cta-button">Schedule a Consultation</a>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section class="services" id="services">
-        <div class="container">
-            <div class="section-title">
-                <h2>Our Services</h2>
+    <!-- Home Page -->
+    <div id="home" class="page-content active-page">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container hero-content">
+                <h2>Healthy & Delicious Recipes for Seniors</h2>
+                <p>Nourishing meals designed for the nutritional needs of elderly individuals</p>
+                <a href="#" class="btn" data-page="blog">Explore Recipes</a>
             </div>
-            
-            <div class="services-grid">
-                <!-- Service 1 -->
-                <div class="service-card">
-                    <div class="card-header">
-                        <i class="fas fa-tree card-icon"></i>
-                        <h3>Professional Landscaping</h3>
+        </section>
+
+        <!-- Featured Recipes -->
+        <section>
+            <div class="container">
+                <div class="section-title">
+                    <h2>Featured Recipes</h2>
+                </div>
+                <div class="recipes-grid">
+                    <!-- Recipe 1 -->
+                    <div class="recipe-card">
+                        <div class="recipe-img">
+                            <img src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Baked Salmon">
+                        </div>
+                        <div class="recipe-content">
+                            <h3>Baked Salmon with Herbs</h3>
+                            <div class="recipe-meta">
+                                <span><i class="fas fa-clock"></i> 25 mins</span>
+                                <span><i class="fas fa-user"></i> Easy</span>
+                            </div>
+                            <p>Omega-3 rich salmon baked with fresh herbs and lemon.</p>
+                            <a href="#" class="btn">View Recipe</a>
+                        </div>
                     </div>
-                    <div class="card-content">
-                        <p>Burner Gardening Service offers comprehensive landscaping solutions for residential and commercial properties in West Valley City. Our experienced team specializes in landscape design, installation, and renovation, transforming outdoor spaces into functional, beautiful environments.</p>
-                        <p>We work closely with clients to understand their vision, ensuring every project aligns with their aesthetic preferences and practical needs. From patios and walkways to water features and outdoor lighting, our services combine creativity with technical expertise.</p>
+                    
+                    <!-- Recipe 2 -->
+                    <div class="recipe-card">
+                        <div class="recipe-img">
+                            <img src="https://images.unsplash.com/photo-1547592166-23ac45744acd?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Vegetable Soup">
+                        </div>
+                        <div class="recipe-content">
+                            <h3>Hearty Vegetable Soup</h3>
+                            <div class="recipe-meta">
+                                <span><i class="fas fa-clock"></i> 40 mins</span>
+                                <span><i class="fas fa-user"></i> Easy</span>
+                            </div>
+                            <p>Nutrient-packed soup with seasonal vegetables and lean protein.</p>
+                            <a href="#" class="btn">View Recipe</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Recipe 3 -->
+                    <div class="recipe-card">
+                        <div class="recipe-img">
+                            <img src="https://images.unsplash.com/photo-1490818387583-1baba5e638af?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Oatmeal">
+                        </div>
+                        <div class="recipe-content">
+                            <h3>Berry Oatmeal Bowl</h3>
+                            <div class="recipe-meta">
+                                <span><i class="fas fa-clock"></i> 15 mins</span>
+                                <span><i class="fas fa-user"></i> Easy</span>
+                            </div>
+                            <p>Fiber-rich oatmeal topped with antioxidant berries.</p>
+                            <a href="#" class="btn">View Recipe</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Recipe 4 -->
+                    <div class="recipe-card">
+                        <div class="recipe-img">
+                            <img src="https://images.unsplash.com/photo-1606491956689-2ea866880c84?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Chicken">
+                        </div>
+                        <div class="recipe-content">
+                            <h3>Lemon Herb Chicken</h3>
+                            <div class="recipe-meta">
+                                <span><i class="fas fa-clock"></i> 30 mins</span>
+                                <span><i class="fas fa-user"></i> Medium</span>
+                            </div>
+                            <p>Tender chicken breast with zesty lemon and aromatic herbs.</p>
+                            <a href="#" class="btn">View Recipe</a>
+                        </div>
                     </div>
                 </div>
-                
-                <!-- Service 2 -->
-                <div class="service-card">
-                    <div class="card-header">
-                        <i class="fas fa-spa card-icon"></i>
-                        <h3>Expert Garden Maintenance</h3>
+                <div style="text-align: center; margin-top: 40px;">
+                    <a href="#" class="btn btn-secondary" data-page="blog">View All Recipes</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="testimonials">
+            <div class="container">
+                <div class="section-title">
+                    <h2>What Our Community Says</h2>
+                </div>
+                <div class="testimonials-container">
+                    <!-- Testimonial 1 -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p>"The recipes have transformed my father's eating habits. He's more energetic and his doctor is thrilled with his improved blood work!"</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-img">
+                                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Sarah Johnson">
+                            </div>
+                            <div class="author-info">
+                                <h4>Sarah Johnson</h4>
+                                <p>Daughter of a senior client</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="card-content">
-                        <p>Maintain your garden's health and beauty with our professional maintenance services. Our skilled gardeners provide regular care including pruning, weeding, fertilizing, and pest control.</p>
-                        <p>We develop customized maintenance plans based on your garden's specific requirements and local climate conditions. Our team stays current with sustainable horticultural practices to ensure your plants thrive while minimizing environmental impact.</p>
+                    
+                    <!-- Testimonial 2 -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p>"As a 72-year-old with diabetes, I struggled to find tasty meals that fit my dietary needs. Abey's Recipes has been a game-changer!"</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-img">
+                                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Robert Davis">
+                            </div>
+                            <div class="author-info">
+                                <h4>Robert Davis</h4>
+                                <p>Regular user for 1 year</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 3 -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p>"The Mediterranean diet recipes have helped my husband manage his heart condition while enjoying delicious meals every day."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-img">
+                                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Margaret Thompson">
+                            </div>
+                            <div class="author-info">
+                                <h4>Margaret Thompson</h4>
+                                <p>Caregiver for her husband</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                
-                <!-- Service 3 -->
-                <div class="service-card">
-                    <div class="card-header">
-                        <i class="fas fa-recycle card-icon"></i>
-                        <h3>Sustainable Solutions</h3>
-                    </div>
-                    <div class="card-content">
-                        <p>We prioritize eco-friendly practices in all our services, offering sustainable landscaping options that conserve resources and support local ecosystems. Our experts implement water-wise irrigation systems, drought-resistant native plants, and organic soil management techniques.</p>
-                        <p>We specialize in xeriscaping designs that reduce water usage while maintaining visual appeal. Our sustainable approach includes using electric equipment, recycling green waste, and implementing natural pest control methods.</p>
-                    </div>
+                <div style="text-align: center; margin-top: 40px;">
+                    <a href="#" class="btn" data-page="testimonials">Read More Testimonials</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Blog Page -->
+    <div id="blog" class="page-content">
+        <section>
+            <div class="container">
+                <div class="section-title">
+                    <h2>Healthy Recipes for Seniors</h2>
+                    <p>Browse our collection of nutritious and easy-to-prepare meals</p>
                 </div>
                 
-                <!-- Service 4 -->
-                <div class="service-card">
-                    <div class="card-header">
-                        <i class="fas fa-calendar-alt card-icon"></i>
-                        <h3>Seasonal Care Programs</h3>
-                    </div>
-                    <div class="card-content">
-                        <p>Our seasonal care programs ensure your landscape remains healthy year-round in Utah's varying climate. Spring services include soil preparation, aeration, and planting, while summer focuses on irrigation optimization and pest management.</p>
-                        <p>Fall cleanup involves leaf removal, perennial care, and winterization preparations. We also offer snow removal and winter protection services during colder months. Our team monitors local weather patterns to time interventions effectively.</p>
-                    </div>
+                <div class="recipes-grid">
+                    <!-- Recipe cards will be generated by JavaScript -->
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Testimonials Page -->
+    <div id="testimonials" class="page-content">
+        <section class="testimonials-page">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Success Stories</h2>
+                    <p>How our recipes have improved seniors' health and wellbeing</p>
                 </div>
                 
-                <!-- Service 5 -->
-                <div class="service-card">
-                    <div class="card-header">
-                        <i class="fas fa-pencil-ruler card-icon"></i>
-                        <h3>Custom Landscape Design</h3>
+                <div class="testimonials-container">
+                    <!-- Testimonials will be generated by JavaScript -->
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Contact Page -->
+    <div id="contact" class="page-content">
+        <section>
+            <div class="container">
+                <div class="section-title">
+                    <h2>Contact Us</h2>
+                    <p>Have questions? Get in touch with our nutrition team</p>
+                </div>
+                
+                <div class="contact-container">
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h3>Our Location</h3>
+                                <p>11514 Valleydale Drive, Dallas, TX 75230</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h3>Phone Number</h3>
+                                <p><a href="tel:+18334895519">+1 833-489-5519</a></p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h3>Email Address</h3>
+                                <p><a href="mailto:info@abeysrecipes.com">info@abeysrecipes.com</a></p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h3>Working Hours</h3>
+                                <p>Monday-Friday: 9AM - 5PM</p>
+                                <p>Saturday: 10AM - 2PM</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="card-content">
-                        <p>Create your ideal outdoor space with our personalized design services. Our designers combine functionality with aesthetics to develop layouts that complement your property's architecture and natural features.</p>
-                        <p>We consider factors like sun exposure, soil composition, and usage patterns to create practical, beautiful designs. Whether you want an entertainment-focused backyard or specialized features like edible gardens, we translate your ideas into actionable plans.</p>
+                    
+                    <div class="contact-form">
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <input type="text" placeholder="Your Name" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" placeholder="Your Email" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" placeholder="Subject">
+                            </div>
+                            <div class="form-group">
+                                <textarea placeholder="Your Message" required></textarea>
+                            </div>
+                            <button type="submit" class="btn">Send Message</button>
+                        </form>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Contact Info -->
-    <section class="contact-info" id="contact">
-        <div class="container contact-container">
-            <h2>Contact Us Today</h2>
-            <p><i class="fas fa-map-marker-alt contact-icon"></i> 3148 W 3500 S, West Valley City, UT 84119</p>
-            <p><i class="fas fa-phone contact-icon"></i> +1-855-492-2901</p>
-            <p><i class="fas fa-envelope contact-icon"></i> info@burnergardening.com</p>
-            <p><i class="fas fa-clock contact-icon"></i> Monday-Saturday: 8:00 AM - 6:00 PM</p>
-        </div>
-    </section>
+        </section>
+    </div>
 
     <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-container">
                 <div class="footer-col">
-                    <h4>About Us</h4>
-                    <p>Burner Gardening Service has been transforming outdoor spaces in West Valley City for over 15 years. Our dedicated team of landscaping professionals is committed to excellence and customer satisfaction.</p>
+                    <h3>Abey's Recipes</h3>
+                    <p>Providing nutritious and delicious recipes tailored for seniors since 2015. Our mission is to improve health and wellbeing through proper nutrition.</p>
                     <div class="social-links">
-                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-pinterest"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
                     </div>
                 </div>
                 
                 <div class="footer-col">
-                    <h4>Quick Links</h4>
-                    <a href="#"><i class="fas fa-chevron-right"></i> Home</a>
-                    <a href="#services"><i class="fas fa-chevron-right"></i> Services</a>
-                    <a href="#about"><i class="fas fa-chevron-right"></i> About Us</a>
-                    <a href="#contact"><i class="fas fa-chevron-right"></i> Contact</a>
-                    <a href="#"><i class="fas fa-chevron-right"></i> Gallery</a>
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#" data-page="home">Home</a></li>
+                        <li><a href="#" data-page="blog">Recipes</a></li>
+                        <li><a href="#" data-page="testimonials">Testimonials</a></li>
+                        <li><a href="#" data-page="contact">Contact</a></li>
+                    </ul>
                 </div>
                 
                 <div class="footer-col">
-                    <h4>Our Services</h4>
-                    <a href="#"><i class="fas fa-chevron-right"></i> Landscape Design</a>
-                    <a href="#"><i class="fas fa-chevron-right"></i> Garden Maintenance</a>
-                    <a href="#"><i class="fas fa-chevron-right"></i> Seasonal Care</a>
-                    <a href="#"><i class="fas fa-chevron-right"></i> Sustainable Landscaping</a>
-                    <a href="#"><i class="fas fa-chevron-right"></i> Irrigation Systems</a>
+                    <h3>Popular Recipes</h3>
+                    <ul>
+                        <li><a href="#">Baked Salmon with Herbs</a></li>
+                        <li><a href="#">Mediterranean Quinoa Bowl</a></li>
+                        <li><a href="#">Vegetable Lentil Soup</a></li>
+                        <li><a href="#">Berry Oatmeal Breakfast</a></li>
+                    </ul>
                 </div>
                 
                 <div class="footer-col">
-                    <h4>Contact Info</h4>
-                    <p><i class="fas fa-map-marker-alt"></i> 3148 W 3500 S, West Valley City, UT 84119</p>
-                    <p><i class="fas fa-phone"></i> +1-855-492-2901</p>
-                    <p><i class="fas fa-envelope"></i> info@burnergardening.com</p>
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 11514 Valleydale Drive, Dallas, TX 75230</p>
+                    <p><i class="fas fa-phone"></i> +1 833-489-5519</p>
+                    <p><i class="fas fa-envelope"></i> info@abeysrecipes.com</p>
                 </div>
             </div>
             
             <div class="copyright">
-                <p>&copy; 2023 Burner Gardening Service. All rights reserved.</p>
-                <p><a href="/privacy-policy.html">Privacy Policy</a> | <a href="/terms-of-service.html">Terms of Service</a></p>
+                <p>&copy; 2023 Abey's Recipes. All Rights Reserved. Designed with <i class="fas fa-heart"></i> for senior health.</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Mobile Menu Toggle
-        const mobileMenu = document.querySelector('.mobile-menu');
-        const navMenu = document.querySelector('nav ul');
-        
-        mobileMenu.addEventListener('click', () => {
-            navMenu.classList.toggle('show');
-        });
-        
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    window.scrollTo({
-                        top: target.offsetTop - 80,
-                        behavior: 'smooth'
+        // Recipe data
+        const recipes = [
+            {
+                title: "Baked Salmon with Herbs",
+                time: "25 mins",
+                difficulty: "Easy",
+                description: "Omega-3 rich salmon baked with fresh herbs and lemon.",
+                image: "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+            },
+            {
+                title: "Hearty Vegetable Soup",
+                time: "40 mins",
+                difficulty: "Easy",
+                description: "Nutrient-packed soup with seasonal vegetables and lean protein.",
+                image: "https://images.unsplash.com/photo-1547592166-23ac45744acd?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+            },
+            {
+                title: "Berry Oatmeal Bowl",
+                time: "15 mins",
+                difficulty: "Easy",
+                description: "Fiber-rich oatmeal topped with antioxidant berries.",
+                image: "https://images.unsplash.com/photo-1490818387583-1baba5e638af?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+            },
+            {
+                title: "Lemon Herb Chicken",
+                time: "30 mins",
+                difficulty: "Medium",
+                description: "Tender chicken breast with zesty lemon and aromatic herbs.",
+                image: "https://images.unsplash.com/photo-1606491956689-2ea866880c84?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+            },
+            {
+                title: "Mediterranean Quinoa Bowl",
+                time: "30 mins",
+                difficulty: "Easy",
+                description: "Protein-packed quinoa with fresh vegetables and feta cheese.",
+                image: "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+            },
+            {
+                title: "Sweet Potato & Black Bean Chili",
+                time: "45 mins",
+                difficulty: "Medium",
+                description: "Hearty vegetarian chili with fiber-rich beans and sweet potatoes.",
+                image: "https://images.unsplash.com/photo-1546549032-9571cd6b27df?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+            },
+            {
+                title: "Greek Yogurt Parfait",
+                time: "10 mins",
+                difficulty: "Easy",
+                description: "Calcium-rich yogurt layered with fruits and nuts.",
+                image: "https://images.unsplash.com/photo-1505253716362-afaea1d3d1af?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+            },
+            {
+                title: "Spinach and Mushroom Omelette",
+                time: "15 mins",
+                difficulty: "Easy",
+                description: "Protein-rich breakfast with iron-packed spinach.",
+                image: "https://images.unsplash.com/photo-1551892374-ecf8754cf8b0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+            },
+            {
+                title: "Baked Cod with Roasted Vegetables",
+                time: "35 mins",
+                difficulty: "Medium",
+                description: "Lean protein with antioxidant-rich vegetables.",
+                image: "https://images.unsplash.com/photo-1563379926898-05f4575a45d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+            },
+            {
+                title: "Lentil and Vegetable Stew",
+                time: "50 mins",
+                difficulty: "Medium",
+                description: "Fiber-rich stew packed with nutrients and flavor.",
+                image: "https://images.unsplash.com/photo-1603105037880-8802c0e0b6ae?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+            },
+            {
+                title: "Avocado Toast with Poached Egg",
+                time: "15 mins",
+                difficulty: "Easy",
+                description: "Healthy fats and protein for sustained energy.",
+                image: "https://images.unsplash.com/photo-1551892374-ecf8754cf8b0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+            },
+            {
+                title: "Chicken and Vegetable Stir-Fry",
+                time: "25 mins",
+                difficulty: "Medium",
+                description: "Quick and nutritious meal with lean protein and veggies.",
+                image: "https://images.unsplash.com/photo-1563245372-f21724e3856d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+            },
+            {
+                title: "Quinoa Salad with Chickpeas",
+                time: "20 mins",
+                difficulty: "Easy",
+                description: "Plant-based protein with fiber and essential nutrients.",
+                image: "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+            },
+            {
+                title: "Turkey Meatloaf with Sweet Potato",
+                time: "60 mins",
+                difficulty: "Medium",
+                description: "Lean protein with vitamin A-rich sweet potatoes.",
+                image: "https://images.unsplash.com/photo-1563379926898-05f4575a45d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+            },
+            {
+                title: "Berry Smoothie Bowl",
+                time: "10 mins",
+                difficulty: "Easy",
+                description: "Antioxidant-rich breakfast with vitamins and fiber.",
+                image: "https://images.unsplash.com/photo-1505253716362-afaea1d3d1af?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+            },
+            {
+                title: "Vegetable Lasagna",
+                time: "75 mins",
+                difficulty: "Medium",
+                description: "Whole grain pasta with layers of vegetables and cheese.",
+                image: "https://images.unsplash.com/photo-1598866594230-a7c12756260f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+            },
+            {
+                title: "Baked Chicken with Root Vegetables",
+                time: "55 mins",
+                difficulty: "Medium",
+                description: "One-pan meal with lean protein and seasonal vegetables.",
+                image: "https://images.unsplash.com/photo-1606491956689-2ea866880c84?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+            },
+            {
+                title: "Tuna Salad Stuffed Avocado",
+                time: "15 mins",
+                difficulty: "Easy",
+                description: "Omega-3 rich tuna served in a healthy avocado bowl.",
+                image: "https://images.unsplash.com/photo-1551892374-ecf8754cf8b0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+            },
+            {
+                title: "Minestrone Soup",
+                time: "45 mins",
+                difficulty: "Medium",
+                description: "Classic Italian soup packed with vegetables and beans.",
+                image: "https://images.unsplash.com/photo-1547592166-23ac45744acd?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+            },
+            {
+                title: "Baked Apples with Cinnamon",
+                time: "35 mins",
+                difficulty: "Easy",
+                description: "Warm, fiber-rich dessert with natural sweetness.",
+                image: "https://images.unsplash.com/photo-1563245372-f21724e3856d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+            }
+        ];
+
+        // Testimonial data
+        const testimonials = [
+            {
+                content: "Since following Abey's heart-healthy recipes, my blood pressure has improved significantly. The meals are delicious and easy to prepare!",
+                author: "James Wilson",
+                role: "Senior with hypertension",
+                image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80"
+            },
+            {
+                content: "As a caregiver, I appreciate how these recipes consider dietary restrictions while still being flavorful. My mother looks forward to every meal!",
+                author: "Emily Carter",
+                role: "Caregiver",
+                image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80"
+            },
+            {
+                content: "The diabetic-friendly recipes have helped me manage my blood sugar without feeling deprived. Thank you for making healthy eating enjoyable!",
+                author: "Margaret Thompson",
+                role: "Type 2 diabetic",
+                image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80"
+            },
+            {
+                content: "I've struggled with appetite since my cancer treatment. These nutrient-dense recipes have helped me maintain my weight and energy levels.",
+                author: "Robert Chen",
+                role: "Cancer survivor",
+                image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80"
+            },
+            {
+                content: "The osteoporosis-focused recipes with calcium-rich ingredients have been a game-changer for my bone health. Delicious and nutritious!",
+                author: "Susan Miller",
+                role: "Osteoporosis patient",
+                image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80"
+            },
+            {
+                content: "My arthritis has improved since incorporating Abey's anti-inflammatory recipes. Less pain and more mobility!",
+                author: "Thomas Johnson",
+                role: "Arthritis sufferer",
+                image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80"
+            }
+        ];
+
+        // Navigation functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu toggle
+            const mobileMenu = document.querySelector('.mobile-menu');
+            const navMenu = document.querySelector('nav ul');
+            
+            mobileMenu.addEventListener('click', function() {
+                navMenu.classList.toggle('active');
+            });
+            
+            // Page navigation
+            const navLinks = document.querySelectorAll('nav a, .btn[data-page]');
+            const pages = document.querySelectorAll('.page-content');
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetPage = this.getAttribute('data-page');
+                    
+                    // Update active navigation
+                    document.querySelectorAll('nav li').forEach(li => {
+                        li.classList.remove('active');
                     });
                     
-                    // Close mobile menu if open
-                    navMenu.classList.remove('show');
-                }
+                    if (this.parentElement.tagName === 'LI') {
+                        this.parentElement.classList.add('active');
+                    }
+                    
+                    // Show target page
+                    pages.forEach(page => {
+                        page.classList.remove('active-page');
+                        if (page.id === targetPage) {
+                            page.classList.add('active-page');
+                        }
+                    });
+                    
+                    // Close mobile menu
+                    navMenu.classList.remove('active');
+                    
+                    // Scroll to top
+                    window.scrollTo(0, 0);
+                    
+                    // If navigating to blog, generate recipe cards
+                    if (targetPage === 'blog') {
+                        generateRecipeCards();
+                    }
+                    
+                    // If navigating to testimonials, generate testimonials
+                    if (targetPage === 'testimonials') {
+                        generateTestimonials();
+                    }
+                });
             });
-        });
-        
-        // Apple Pay Popup Functionality
-        const applePayPopup = document.getElementById('applePayPopup');
-        const closeBtn = document.querySelector('.close-btn');
-        
-        // Show popup after 2 seconds
-        setTimeout(() => {
-            applePayPopup.classList.add('active');
-        }, 2000);
-        
-        // Close popup when close button is clicked
-        closeBtn.addEventListener('click', () => {
-            applePayPopup.classList.remove('active');
-        });
-        
-        // Close popup when clicking outside content
-        applePayPopup.addEventListener('click', (e) => {
-            if (e.target === applePayPopup) {
-                applePayPopup.classList.remove('active');
+            
+            // Contact form submission
+            const contactForm = document.getElementById('contactForm');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    alert('Thank you for your message! We will get back to you soon.');
+                    this.reset();
+                });
             }
+            
+            // Generate initial recipe cards for blog page
+            generateRecipeCards();
+            generateTestimonials();
         });
+        
+        function generateRecipeCards() {
+            const recipesGrid = document.querySelector('.recipes-grid');
+            if (!recipesGrid) return;
+            
+            recipesGrid.innerHTML = '';
+            
+            recipes.forEach(recipe => {
+                const card = document.createElement('div');
+                card.className = 'recipe-card';
+                card.innerHTML = `
+                    <div class="recipe-img">
+                        <img src="${recipe.image}" alt="${recipe.title}">
+                    </div>
+                    <div class="recipe-content">
+                        <h3>${recipe.title}</h3>
+                        <div class="recipe-meta">
+                            <span><i class="fas fa-clock"></i> ${recipe.time}</span>
+                            <span><i class="fas fa-user"></i> ${recipe.difficulty}</span>
+                        </div>
+                        <p>${recipe.description}</p>
+                        <a href="#" class="btn">View Recipe</a>
+                    </div>
+                `;
+                recipesGrid.appendChild(card);
+            });
+        }
+        
+        function generateTestimonials() {
+            const testimonialsContainer = document.querySelector('.testimonials-container');
+            if (!testimonialsContainer) return;
+            
+            testimonialsContainer.innerHTML = '';
+            
+            testimonials.forEach(testimonial => {
+                const card = document.createElement('div');
+                card.className = 'testimonial-card';
+                card.innerHTML = `
+                    <div class="testimonial-content">
+                        <p>${testimonial.content}</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-img">
+                            <img src="${testimonial.image}" alt="${testimonial.author}">
+                        </div>
+                        <div class="author-info">
+                            <h4>${testimonial.author}</h4>
+                            <p>${testimonial.role}</p>
+                        </div>
+                    </div>
+                `;
+                testimonialsContainer.appendChild(card);
+            });
+        }
     </script>
 </body>
 </html>
